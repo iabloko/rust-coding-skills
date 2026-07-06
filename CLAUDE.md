@@ -64,6 +64,9 @@ For multi-step tasks, state a brief plan with a verify check per step.
 | `rust-architecture` | Organizing a crate, adding a trait/module boundary, wiring services — layering, DI via traits, dispatch choice |
 | `rust-performance` | Any hot path or throughput/latency/memory goal — measure first, cut allocations, tune the release profile |
 | `rust-security` | Any `unsafe`, untrusted-input handling, SQL/command/path, crypto, or security review — attack-vector-first checklist |
+| `rust-web` | Any axum handler/router/middleware — thin handler over a service, `IntoResponse` errors, validation, tower layers |
+| `rust-database` | Any SQL/sqlx — pooling, `query!` bind params, transactions, migrations, N+1 |
+| `rust-observability` | Any logging/metrics — `tracing` structured logs + spans, no `println!`, no secrets in fields |
 
 ### Engineering skills (auto-activated; principles apply to every change)
 
@@ -71,11 +74,12 @@ For multi-step tasks, state a brief plan with a verify check per step.
 - `running-tdd-cycles` — red→green→refactor on every logic change (`cargo test`/`nextest`).
 - `committing-changes` — feature branch + PR + git hooks; never push `main`, never merge.
 - `designing-architecture` — crate/module + crates.io scan before implementing a new system.
+- `managing-github-issues` — plan/track work as dependency-linked GitHub Issues.
 - `engineering-philosophy` — KISS, YAGNI, DRY, SOLID, Fail-Fast on every decision.
 - `shell-discipline` — one command per call, no inline env vars.
 
 ### Slash commands (this plugin)
 
-`/rust-skills:tdd`, `/rust-skills:review` (five parallel agents), `/rust-skills:security-review`, `/rust-skills:commit`, `/rust-skills:design` — thin wrappers that invoke the skills above.
+`/rust-skills:tdd`, `/rust-skills:review` (five parallel agents), `/rust-skills:security-review`, `/rust-skills:commit`, `/rust-skills:design`, `/rust-skills:pm` — thin wrappers that invoke the skills above.
 
 **These guidelines are working if:** fewer `.unwrap()`/`.clone()` crutches in diffs, fewer god-functions, error paths tested, and clarifying questions come before implementation rather than after mistakes.

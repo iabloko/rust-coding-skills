@@ -23,6 +23,9 @@ Rust-focused skills for [Claude Code](https://claude.com/claude-code): idiomatic
 | `rust-architecture` | Module/crate/workspace layout, inward-pointing layers, traits for DI (repository pattern), static vs dynamic dispatch, illegal-states-unrepresentable |
 | `rust-performance` | Measure-first (`criterion`/flamegraph), cut needless allocations/clones, generics vs `dyn`, release profile tuning, bounded async concurrency |
 | `rust-security` | Security review: `unsafe` soundness, integer overflow/truncation, panic-as-DoS, injection (SQL/command/path), secrets, crypto, `cargo audit`/`deny`, authz, resource exhaustion |
+| `rust-web` | axum: routing, extractors, `State`, error→response mapping, tower middleware, validation, thin-handler-over-service |
+| `rust-database` | sqlx: pooling, compile-time-checked `query!`, bind params, transactions, migrations, avoiding N+1 |
+| `rust-observability` | `tracing`: structured logs over `println!`, spans/`#[instrument]`, levels, metrics (RED), OpenTelemetry |
 
 Opinionated backend defaults across the pack: **tokio** (async), **axum** (web), **thiserror**/**anyhow** (errors), **serde** (serialization), **sqlx** (DB). Override per project via `Cargo.toml`.
 
@@ -32,10 +35,13 @@ Opinionated backend defaults across the pack: **tokio** (async), **axum** (web),
 | --- | --- |
 | `reviewing-changes` | Strict five-pass review (code, security, architecture, acceptance, AI-native) — the "harsh review" gate, with a Rust beginner anti-pattern checklist |
 | `running-tdd-cycles` | Red-green-refactor on `cargo test`/`nextest`, `proptest` for invariants, one requirement per cycle |
-| `committing-changes` | Feature branch + PR + git hooks; pre-commit runs `cargo fmt`/`clippy`/`test`; never push `main`, never merge |
+| `committing-changes` | Feature branch + PR + git hooks + CI templates; pre-commit runs `cargo fmt`/`clippy`/`test`; never push `main`, never merge |
 | `designing-architecture` | Crate/module structure, crates.io selection, trait boundaries, error strategy — before implementing |
+| `managing-github-issues` | Plan/track work as GitHub Issues — decompose into dependency-linked task issues, label conventions |
 | `engineering-philosophy` | KISS, YAGNI, DRY, SOLID, Fail-Fast weights on every decision |
 | `shell-discipline` | One command per call, no inline env vars, `gh auth login` |
+
+**Bundled templates** (install via `committing-changes/scripts/install-*.sh`, or copy from `rust-conventions/templates/`): a CI workflow (`cargo fmt`/`clippy`/`test`/`audit`), a PR-size gate, and starter `clippy.toml` / `rustfmt.toml` / `deny.toml`.
 
 ### Slash commands
 
@@ -48,6 +54,7 @@ Thin wrappers over the skills (namespaced `/rust-skills:<cmd>`):
 | `/rust-skills:security-review` | Focused single-pass Rust security audit (`rust-security`) |
 | `/rust-skills:commit` | Commit + PR via `committing-changes` (hooks, cargo gate, `gh pr create`) |
 | `/rust-skills:design` | Pre-implementation architecture (`designing-architecture`) |
+| `/rust-skills:pm` | Plan/track work as GitHub Issues (`managing-github-issues`) |
 
 ### Review agents
 
@@ -63,7 +70,7 @@ The official `rust-analyzer-lsp` plugin (in the `claude-plugins-official` market
 
 ## Status
 
-Iterations 1–3 complete: eight Rust skills (`rust-conventions`, `rust-error-handling`, `rust-ownership`, `rust-testing`, `rust-async`, `rust-architecture`, `rust-performance`, `rust-security`), the full engineering set, five slash commands, and five parallel review agents.
+Iterations 1–4 complete: eleven Rust skills (`rust-conventions`, `rust-error-handling`, `rust-ownership`, `rust-testing`, `rust-async`, `rust-architecture`, `rust-performance`, `rust-security`, `rust-web`, `rust-database`, `rust-observability`), the engineering set (incl. `managing-github-issues`), six slash commands, five parallel review agents, and bundled CI + lint-config templates.
 
 ## License
 
