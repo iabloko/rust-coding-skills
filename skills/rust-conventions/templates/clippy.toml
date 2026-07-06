@@ -1,0 +1,20 @@
+# clippy configuration — drop at the repo root as `clippy.toml`.
+# Tunes lint thresholds. Full list: https://rust-lang.github.io/rust-clippy/
+#
+# The lint LEVEL (deny/warn/allow) is set in code at the crate root, e.g.:
+#   #![warn(clippy::pedantic)]
+#   #![deny(clippy::unwrap_used, clippy::expect_used)]   // enforce the no-unwrap rule
+# and enforced in CI with: cargo clippy --all-targets --all-features -- -D warnings
+
+# Flag functions taking more than N arguments (default 7) — nudge toward a params struct.
+too-many-arguments-threshold = 6
+
+# Flag overly complex types (default 250) — nudge toward a type alias / newtype.
+type-complexity-threshold = 250
+
+# Set your Minimum Supported Rust Version so clippy won't suggest newer APIs.
+# msrv = "1.75.0"
+
+# Treat these as acceptable "test" contexts where unwrap/expect lints relax, if configured.
+# allow-unwrap-in-tests = true
+# allow-expect-in-tests = true

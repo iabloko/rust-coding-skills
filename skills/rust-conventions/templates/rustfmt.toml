@@ -1,0 +1,15 @@
+# rustfmt configuration — drop at the repo root as `rustfmt.toml`.
+# These options are STABLE. Enforce in CI with: cargo fmt --all -- --check
+# Full list: https://rust-lang.github.io/rustfmt/
+
+max_width = 100
+newline_style = "Unix"          # LF; pairs with the repo's .gitattributes eol=lf
+
+# --- Nightly-only options (require `cargo +nightly fmt`) ---
+# Uncomment ONLY if the project formats with nightly rustfmt, otherwise `cargo fmt`
+# on stable errors on unknown options.
+#
+# group_imports = "StdExternalCrate"   # std / external / crate — three blocks
+# imports_granularity = "Crate"        # merge use paths per crate
+# format_code_in_doc_comments = true
+# wrap_comments = true

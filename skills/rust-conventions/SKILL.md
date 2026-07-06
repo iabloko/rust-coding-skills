@@ -43,6 +43,7 @@ cargo test --all-features        # tests green
 - **`rustfmt` is law.** Never hand-format against it, never sprinkle `#[rustfmt::skip]` to dodge it. If output looks bad, the code structure is the problem.
 - **Clippy at `-D warnings`.** A clippy warning is a build failure here. Do not `#[allow(...)]` a lint to silence it without a one-line `// reason:` and a genuine justification — an unexplained `#[allow]` is itself a review finding.
 - **Recommend pedantic for new crates.** For greenfield code add `#![warn(clippy::pedantic)]` at the crate root; selectively `allow` the few pedantic lints that fight the project's style, each with a reason.
+- **Starter config templates** ship with this skill — copy them to the repo root as a baseline (`<skills>` = this plugin's `skills/` directory): `cp <skills>/rust-conventions/templates/{clippy.toml,rustfmt.toml,deny.toml} .`. `clippy.toml`/`rustfmt.toml` tune thresholds and formatting; `deny.toml` drives `cargo deny` (advisories + license policy). For a new crate, also enforce the no-unwrap rule in code: `#![deny(clippy::unwrap_used, clippy::expect_used)]` (relaxed in tests).
 
 ## Naming (RFC 430, enforced by clippy)
 

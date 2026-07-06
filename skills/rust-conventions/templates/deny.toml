@@ -1,0 +1,40 @@
+# cargo-deny configuration — drop at the repo root as `deny.toml`.
+# Run with: cargo deny check   (install: cargo install cargo-deny)
+# In CI, gate advisories + licenses + duplicate/banned crates.
+#
+# NOTE: cargo-deny's schema evolves across versions. If `cargo deny check` complains
+# about unknown keys, regenerate a fresh baseline with `cargo deny init` and merge in
+# the policy below. Full docs: https://embarkstudios.github.io/cargo-deny/
+
+[advisories]
+# Fail on any RUSTSEC advisory affecting the dependency tree.
+# (Older cargo-deny used `vulnerability`/`unmaintained = "deny"`; newer versions
+# treat these as errors by default — `cargo deny init` emits the current shape.)
+yanked = "deny"
+ignore = [
+    # "RUSTSEC-0000-0000",  # justify each ignore with a comment and a tracking link
+]
+
+[licenses]
+# Allow only permissive licenses; anything else needs a deliberate decision.
+allow = [
+    "MIT",
+    "Apache-2.0",
+    "Apache-2.0 WITH LLVM-exception",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "ISC",
+    "Unicode-3.0",
+    "Zlib",
+]
+confidence-threshold = 0.9
+
+[bans]
+# Flag multiple versions of the same crate (bloat / drift) as a warning.
+multiple-versions = "warn"
+wildcards = "deny"          # no `version = "*"` dependencies
+
+[sources]
+# Only allow crates from crates.io by default; add trusted git sources explicitly.
+unknown-registry = "deny"
+unknown-git = "deny"
