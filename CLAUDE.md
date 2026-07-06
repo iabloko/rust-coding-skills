@@ -59,6 +59,10 @@ For multi-step tasks, state a brief plan with a verify check per step.
 | `rust-conventions` | Any `.rs` file — naming, layout, fmt/clippy gates, `Result`-first, forbidden patterns, beginner smells |
 | `rust-error-handling` | Any `Result`, error type, `.unwrap()`/`panic!`, or recoverable-vs-bug decision — `thiserror`/`anyhow` |
 | `rust-ownership` | Any borrow-checker fight, `.clone()`/`Rc`/`Arc`/`RefCell`/`Mutex`, or lifetime annotation |
+| `rust-testing` | Any logic change — unit/integration/doc tests, `#[tokio::test]`, `proptest`, real objects over mocks |
+| `rust-async` | Any async code — tokio, no blocking the runtime, spawning/`JoinSet`, cancellation, channels, axum handlers |
+| `rust-architecture` | Organizing a crate, adding a trait/module boundary, wiring services — layering, DI via traits, dispatch choice |
+| `rust-performance` | Any hot path or throughput/latency/memory goal — measure first, cut allocations, tune the release profile |
 
 ### Engineering skills (auto-activated; principles apply to every change)
 

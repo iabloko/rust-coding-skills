@@ -18,6 +18,10 @@ Rust-focused skills for [Claude Code](https://claude.com/claude-code): idiomatic
 | `rust-conventions` | The rulebook: naming, module/crate layout, `rustfmt` + `clippy -D warnings` gates, `Result`-first flow, visibility, forbidden patterns, and the beginner-smell catalog |
 | `rust-error-handling` | `Result`/`?`, `thiserror` enums for libs, `anyhow` + `.context()` for bins, when `unwrap`/`panic!` is actually correct (rarely) |
 | `rust-ownership` | Borrow-checker mental model, borrow-vs-own, when `clone`/`Rc`/`Arc`/`RefCell`/`Mutex` is the right tool vs a crutch, lifetimes |
+| `rust-testing` | Unit/integration/doc test layout, `#[tokio::test]`, `proptest`, table cases, real objects over mocks, coverage |
+| `rust-async` | tokio, never blocking the runtime, `Send`/`'static` spawning bounds, `JoinSet`, cancellation/`select!`, channels, shared state, axum handlers |
+| `rust-architecture` | Module/crate/workspace layout, inward-pointing layers, traits for DI (repository pattern), static vs dynamic dispatch, illegal-states-unrepresentable |
+| `rust-performance` | Measure-first (`criterion`/flamegraph), cut needless allocations/clones, generics vs `dyn`, release profile tuning, bounded async concurrency |
 
 Opinionated backend defaults across the pack: **tokio** (async), **axum** (web), **thiserror**/**anyhow** (errors), **serde** (serialization), **sqlx** (DB). Override per project via `Cargo.toml`.
 
@@ -42,7 +46,7 @@ The official `rust-analyzer-lsp` plugin (in the `claude-plugins-official` market
 
 ## Status
 
-Iteration 1 — core (`rust-conventions`, `rust-error-handling`, `rust-ownership`) + the full engineering set. Planned next: `rust-testing`, `rust-async`, `rust-architecture`, `rust-performance`.
+Iterations 1–2 complete: the seven Rust skills (`rust-conventions`, `rust-error-handling`, `rust-ownership`, `rust-testing`, `rust-async`, `rust-architecture`, `rust-performance`) + the full engineering set.
 
 ## License
 
