@@ -1,0 +1,10 @@
+# Mark generated/vendored files so GitHub collapses them in PR diffs and
+# size labelers can skip them. Append to your repo's .gitattributes.
+
+Cargo.lock          linguist-generated=true
+
+# Generated protobuf/codegen output (adjust the glob to your build)
+**/*.pb.rs          linguist-generated=true
+**/generated/**     linguist-generated=true
+
+vendor/**           linguist-vendored=true

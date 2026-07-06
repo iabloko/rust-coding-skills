@@ -1,0 +1,30 @@
+#!/bin/bash
+# Pre-commit hook: run the Rust quality gate before committing.
+# fmt (check-only) -> clippy (deny warnings) -> test.
+# Skips cleanly in a repo with no Cargo.toml.
+
+set -e
+
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT"
+
+if [[ ! -f "Cargo.toml" ]]; then
+    exit 0
+fi
+
+if ! command -v cargo &>/dev/null; then
+    echo "⚠ cargo not on PATH — skipping Rust quality gate."
+    exit 0
+fi
+
+echo "→ cargo fmt --check"
+cargo fmt --all -- --check
+
+echo "→ cargo clippy -D warnings"
+cargo clippy --all-targets --all-features -- -D warnings
+
+echo "→ cargo test"
+cargo test --all-features --quiet
+
+echo "✓ Rust quality gate passed"
+exit 0

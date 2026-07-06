@@ -1,0 +1,29 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "rust-skills",
+  "version": "0.1.0",
+  "description": "Rust-focused skills for Claude Code: idiomatic conventions (clippy pedantic, no unwrap), error handling (thiserror/anyhow), ownership & lifetimes, plus the engineering discipline — strict five-pass review, red-green TDD, feature-branch commits, and pre-implementation architecture. Opinionated backend defaults: tokio, axum, thiserror.",
+  "author": {
+    "name": "Daniil",
+    "url": "https://github.com/iabloko"
+  },
+  "homepage": "https://github.com/iabloko/rust-coding-skills",
+  "repository": "https://github.com/iabloko/rust-coding-skills",
+  "license": "MIT",
+  "keywords": [
+    "rust",
+    "cargo",
+    "clippy",
+    "rustfmt",
+    "backend",
+    "tokio",
+    "axum",
+    "thiserror",
+    "anyhow",
+    "ownership",
+    "lifetimes",
+    "error-handling",
+    "code-review",
+    "tdd"
+  ]
+}
