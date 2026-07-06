@@ -17,6 +17,7 @@ Before any pass, internalise the rule skills the diff touches — they are the *
 - [[rust-conventions]] — naming, layout, fmt/clippy gates, forbidden patterns, the beginner-smell catalog.
 - [[rust-error-handling]] — `Result`/`?`, `thiserror`/`anyhow`, banned `.unwrap()`/`panic!` on shipping paths.
 - [[rust-ownership]] — clone-spam, reflexive `Rc<RefCell>`, lifetime/borrow smells.
+- [[rust-security]] — the full Pass 2 checklist: unsafe soundness, overflow, panic-as-DoS, injection, secrets, deps.
 - `engineering-philosophy` — KISS/YAGNI/DRY/SOLID/Fail-Fast weights.
 - Plus `reference/beginner-antipatterns.md` — the fast checklist of the mistakes a Rust newcomer makes most.
 
@@ -49,7 +50,7 @@ Check, in order:
 
 ## 4. Pass 2 — Security audit
 
-Rust removes memory-safety bugs in safe code but not logic/security bugs. Check, in order:
+Rust removes memory-safety bugs in safe code but not logic/security bugs. [[rust-security]] is the full source of truth for this pass (the `security-auditor` agent reads it); the summary below is the fast checklist. Check, in order:
 
 - **`unsafe` soundness** — data races, aliasing violations, invalid pointer derefs, uninitialised memory, breaking an invariant a safe API relies on. Any `unsafe` in the diff gets scrutiny.
 - **Integer overflow / truncation** — release builds *wrap* on overflow silently. Use `checked_*`/`saturating_*`/`wrapping_*` deliberately; flag `as` casts that truncate (`u64 as u32`, `usize as i32`) — clippy's `cast_possible_truncation`.
@@ -134,7 +135,7 @@ For each individual finding:
 
 - `running-tdd-cycles` — preceding workflow; review confirms TDD discipline and error-path coverage.
 - `committing-changes` — commit-message + branch hygiene fold into the code-quality pass.
-- [[rust-conventions]] / [[rust-error-handling]] / [[rust-ownership]] — the rules the diff is checked against.
+- [[rust-conventions]] / [[rust-error-handling]] / [[rust-ownership]] / [[rust-security]] / [[rust-architecture]] — the rules the diff is checked against.
 - `engineering-philosophy` — KISS/YAGNI/DRY/SOLID weights for the code-quality and architecture passes.
 
 ## Reference

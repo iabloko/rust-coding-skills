@@ -22,6 +22,7 @@ Rust-focused skills for [Claude Code](https://claude.com/claude-code): idiomatic
 | `rust-async` | tokio, never blocking the runtime, `Send`/`'static` spawning bounds, `JoinSet`, cancellation/`select!`, channels, shared state, axum handlers |
 | `rust-architecture` | Module/crate/workspace layout, inward-pointing layers, traits for DI (repository pattern), static vs dynamic dispatch, illegal-states-unrepresentable |
 | `rust-performance` | Measure-first (`criterion`/flamegraph), cut needless allocations/clones, generics vs `dyn`, release profile tuning, bounded async concurrency |
+| `rust-security` | Security review: `unsafe` soundness, integer overflow/truncation, panic-as-DoS, injection (SQL/command/path), secrets, crypto, `cargo audit`/`deny`, authz, resource exhaustion |
 
 Opinionated backend defaults across the pack: **tokio** (async), **axum** (web), **thiserror**/**anyhow** (errors), **serde** (serialization), **sqlx** (DB). Override per project via `Cargo.toml`.
 
@@ -36,6 +37,22 @@ Opinionated backend defaults across the pack: **tokio** (async), **axum** (web),
 | `engineering-philosophy` | KISS, YAGNI, DRY, SOLID, Fail-Fast weights on every decision |
 | `shell-discipline` | One command per call, no inline env vars, `gh auth login` |
 
+### Slash commands
+
+Thin wrappers over the skills (namespaced `/rust-skills:<cmd>`):
+
+| Command | Does |
+| --- | --- |
+| `/rust-skills:tdd` | Red-green-refactor cycle on the given requirement (`running-tdd-cycles` + `rust-testing`) |
+| `/rust-skills:review` | Strict five-pass quality gate — launches the five review agents in parallel |
+| `/rust-skills:security-review` | Focused single-pass Rust security audit (`rust-security`) |
+| `/rust-skills:commit` | Commit + PR via `committing-changes` (hooks, cargo gate, `gh pr create`) |
+| `/rust-skills:design` | Pre-implementation architecture (`designing-architecture`) |
+
+### Review agents
+
+`/rust-skills:review` orchestrates five read-only sub-agents in parallel, one per pass, each reading the matching skill: `code-reviewer` (Pass 1), `security-auditor` (Pass 2 → `rust-security`), `architect-review` (Pass 3), `acceptance-auditor` (Pass 4), `ai-native-reviewer` (Pass 5). If parallel agents aren't available, the `reviewing-changes` skill runs the same five passes inline.
+
 ### Recommended pairing: `rust-analyzer-lsp`
 
 The official `rust-analyzer-lsp` plugin (in the `claude-plugins-official` marketplace) gives the agent live diagnostics, go-to-definition, and type info from the running analyzer — a much tighter loop than `cargo check` alone. Install it alongside this pack.
@@ -46,7 +63,7 @@ The official `rust-analyzer-lsp` plugin (in the `claude-plugins-official` market
 
 ## Status
 
-Iterations 1–2 complete: the seven Rust skills (`rust-conventions`, `rust-error-handling`, `rust-ownership`, `rust-testing`, `rust-async`, `rust-architecture`, `rust-performance`) + the full engineering set.
+Iterations 1–3 complete: eight Rust skills (`rust-conventions`, `rust-error-handling`, `rust-ownership`, `rust-testing`, `rust-async`, `rust-architecture`, `rust-performance`, `rust-security`), the full engineering set, five slash commands, and five parallel review agents.
 
 ## License
 

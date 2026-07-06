@@ -63,6 +63,7 @@ For multi-step tasks, state a brief plan with a verify check per step.
 | `rust-async` | Any async code — tokio, no blocking the runtime, spawning/`JoinSet`, cancellation, channels, axum handlers |
 | `rust-architecture` | Organizing a crate, adding a trait/module boundary, wiring services — layering, DI via traits, dispatch choice |
 | `rust-performance` | Any hot path or throughput/latency/memory goal — measure first, cut allocations, tune the release profile |
+| `rust-security` | Any `unsafe`, untrusted-input handling, SQL/command/path, crypto, or security review — attack-vector-first checklist |
 
 ### Engineering skills (auto-activated; principles apply to every change)
 
@@ -72,5 +73,9 @@ For multi-step tasks, state a brief plan with a verify check per step.
 - `designing-architecture` — crate/module + crates.io scan before implementing a new system.
 - `engineering-philosophy` — KISS, YAGNI, DRY, SOLID, Fail-Fast on every decision.
 - `shell-discipline` — one command per call, no inline env vars.
+
+### Slash commands (this plugin)
+
+`/rust-skills:tdd`, `/rust-skills:review` (five parallel agents), `/rust-skills:security-review`, `/rust-skills:commit`, `/rust-skills:design` — thin wrappers that invoke the skills above.
 
 **These guidelines are working if:** fewer `.unwrap()`/`.clone()` crutches in diffs, fewer god-functions, error paths tested, and clarifying questions come before implementation rather than after mistakes.
