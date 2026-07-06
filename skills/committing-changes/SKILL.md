@@ -12,7 +12,13 @@ allowed-tools: Read, Edit, Write, Bash(git status *), Bash(git diff *), Bash(git
    ```
    Copies `pre-commit`, `commit-msg`, `pre-push` into `.git/hooks/` and makes them executable. Idempotent.
 
-   Then install the PR-size CI workflow:
+   Then install the CI workflow (fmt + clippy + test + `cargo audit`):
+   ```
+   bash <skills>/committing-changes/scripts/install-ci-workflow.sh
+   ```
+   Drops `.github/workflows/ci.yml`. This is the mechanical half of the quality gate — the same checks the pre-commit hook runs, enforced on every push/PR. Idempotent.
+
+   And the PR-size CI workflow:
    ```
    bash <skills>/committing-changes/scripts/install-pr-size-workflow.sh
    ```
@@ -93,6 +99,8 @@ allowed-tools: Read, Edit, Write, Bash(git status *), Bash(git diff *), Bash(git
 - [scripts/pre-commit](scripts/pre-commit) — runs `cargo fmt --check`, `cargo clippy -D warnings`, `cargo test` before commit.
 - [scripts/pre-push](scripts/pre-push) — blocks direct push to `main`/`master`.
 - [scripts/install-hooks.sh](scripts/install-hooks.sh) — idempotent installer.
+- [templates/ci.yml](templates/ci.yml) — GitHub Actions workflow: `cargo fmt --check`, `cargo clippy -D warnings`, `cargo test`, `cargo audit`.
+- [scripts/install-ci-workflow.sh](scripts/install-ci-workflow.sh) — idempotent installer for `ci.yml`.
 - [templates/pr-size.yml](templates/pr-size.yml) — GitHub Actions workflow that labels PR size and fails when >1000 changed lines.
 - [templates/gitattributes.example](templates/gitattributes.example) — `linguist-generated`/`linguist-vendored` entries so GitHub collapses generated files in diffs.
 - [scripts/install-pr-size-workflow.sh](scripts/install-pr-size-workflow.sh) — idempotent installer for the workflow + `.gitattributes` block.
