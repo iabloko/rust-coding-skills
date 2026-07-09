@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
   "name": "rust-skills",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Rust-focused skills for Claude Code: idiomatic conventions (clippy pedantic, no unwrap), error handling (thiserror/anyhow), ownership & lifetimes, plus the engineering discipline — strict five-pass review, red-green TDD, feature-branch commits, and pre-implementation architecture. Opinionated backend defaults: tokio, axum, thiserror.",
   "author": {
     "name": "Daniil",
