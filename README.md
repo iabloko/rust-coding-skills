@@ -26,6 +26,8 @@ Rust-focused skills for [Claude Code](https://claude.com/claude-code): idiomatic
 | `rust-web` | axum: routing, extractors, `State`, error→response mapping, tower middleware, validation, thin-handler-over-service |
 | `rust-database` | sqlx: pooling, compile-time-checked `query!`, bind params, transactions, migrations, avoiding N+1 |
 | `rust-observability` | `tracing`: structured logs over `println!`, spans/`#[instrument]`, levels, metrics (RED), OpenTelemetry |
+| `rust-cli` | `clap` derive parsing, thin `main` over testable functions, `Result`/`ExitCode` exit status, config precedence, stdout-vs-stderr output hygiene |
+| `rust-macros` | When *not* to (function/generic/trait first), `macro_rules!` (fragments, hygiene, `$crate`), proc macros (syn/quote, spanned errors), `trybuild` tests |
 
 Opinionated backend defaults across the pack: **tokio** (async), **axum** (web), **thiserror**/**anyhow** (errors), **serde** (serialization), **sqlx** (DB). Override per project via `Cargo.toml`.
 
@@ -70,7 +72,7 @@ The official `rust-analyzer-lsp` plugin (in the `claude-plugins-official` market
 
 ## Status
 
-Iterations 1–4 complete: eleven Rust skills (`rust-conventions`, `rust-error-handling`, `rust-ownership`, `rust-testing`, `rust-async`, `rust-architecture`, `rust-performance`, `rust-security`, `rust-web`, `rust-database`, `rust-observability`), the engineering set (incl. `managing-github-issues`), six slash commands, five parallel review agents, and bundled CI + lint-config templates.
+Iterations 1–5 complete: thirteen Rust skills (`rust-conventions`, `rust-error-handling`, `rust-ownership`, `rust-testing`, `rust-async`, `rust-architecture`, `rust-performance`, `rust-security`, `rust-web`, `rust-database`, `rust-observability`, `rust-cli`, `rust-macros`), the engineering set (incl. `managing-github-issues`), six slash commands, five parallel review agents, and bundled CI + lint-config templates.
 
 ## License
 

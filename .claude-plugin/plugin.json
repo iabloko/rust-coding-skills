@@ -23,6 +23,9 @@
     "ownership",
     "lifetimes",
     "error-handling",
+    "clap",
+    "cli",
+    "macros",
     "code-review",
     "tdd"
   ]
