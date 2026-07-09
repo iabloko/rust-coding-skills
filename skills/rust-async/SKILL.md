@@ -1,6 +1,6 @@
 ---
 name: rust-async
-description: Write correct async Rust on tokio — async/await, the Send/Sync/'static bounds spawning needs, never blocking the runtime, task spawning and JoinSet, cancellation and select!, channels (mpsc/oneshot/broadcast/watch), shared state (Arc + which lock), and axum handler shape. Use whenever writing async fns, spawning tasks, or building a tokio service. Opinionated default runtime: tokio.
+description: "Write correct async Rust on tokio — async/await, the Send/Sync/'static bounds spawning needs, never blocking the runtime, task spawning and JoinSet, cancellation and select!, channels (mpsc/oneshot/broadcast/watch), shared state (Arc + which lock), and axum handler shape. Use whenever writing async fns, spawning tasks, or building a tokio service. Opinionated default runtime: tokio."
 ---
 
 # Async Rust (tokio)
