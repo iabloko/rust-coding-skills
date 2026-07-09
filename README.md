@@ -28,6 +28,8 @@ Rust-focused skills for [Claude Code](https://claude.com/claude-code): idiomatic
 | `rust-observability` | `tracing`: structured logs over `println!`, spans/`#[instrument]`, levels, metrics (RED), OpenTelemetry |
 | `rust-cli` | `clap` derive parsing, thin `main` over testable functions, `Result`/`ExitCode` exit status, config precedence, stdout-vs-stderr output hygiene |
 | `rust-macros` | When *not* to (function/generic/trait first), `macro_rules!` (fragments, hygiene, `$crate`), proc macros (syn/quote, spanned errors), `trybuild` tests |
+| `rust-traits-generics` | Defining/implementing traits, the std traits worth knowing (`Debug`/`Display`/`From`/`Iterator`/…), generic bounds, static vs `dyn` dispatch, `impl Trait`, associated types, the orphan rule, reading trait-bound errors |
+| `rust-iterators-closures` | `Fn`/`FnMut`/`FnOnce` closures and capture, lazy adapters vs consumers, `collect` into the right type (+ `Result`/`Option` short-circuit), `iter`/`iter_mut`/`into_iter`, custom `Iterator` |
 
 Opinionated backend defaults across the pack: **tokio** (async), **axum** (web), **thiserror**/**anyhow** (errors), **serde** (serialization), **sqlx** (DB). Override per project via `Cargo.toml`.
 
@@ -72,7 +74,7 @@ The official `rust-analyzer-lsp` plugin (in the `claude-plugins-official` market
 
 ## Status
 
-Iterations 1–5 complete: thirteen Rust skills (`rust-conventions`, `rust-error-handling`, `rust-ownership`, `rust-testing`, `rust-async`, `rust-architecture`, `rust-performance`, `rust-security`, `rust-web`, `rust-database`, `rust-observability`, `rust-cli`, `rust-macros`), the engineering set (incl. `managing-github-issues`), six slash commands, five parallel review agents, and bundled CI + lint-config templates.
+Iterations 1–6 complete: fifteen Rust skills (`rust-conventions`, `rust-error-handling`, `rust-ownership`, `rust-testing`, `rust-async`, `rust-architecture`, `rust-performance`, `rust-security`, `rust-web`, `rust-database`, `rust-observability`, `rust-cli`, `rust-macros`, `rust-traits-generics`, `rust-iterators-closures`), the engineering set (incl. `managing-github-issues`), six slash commands, five parallel review agents, and bundled CI + lint-config templates.
 
 ## License
 
