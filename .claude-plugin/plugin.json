@@ -26,6 +26,9 @@
     "clap",
     "cli",
     "macros",
+    "traits",
+    "generics",
+    "iterators",
     "code-review",
     "tdd"
   ]

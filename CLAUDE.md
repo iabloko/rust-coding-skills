@@ -69,6 +69,8 @@ For multi-step tasks, state a brief plan with a verify check per step.
 | `rust-observability` | Any logging/metrics — `tracing` structured logs + spans, no `println!`, no secrets in fields |
 | `rust-cli` | Any binary parsing args/subcommands/flags — `clap` derive, thin `main` over testable functions, exit codes, stdout-vs-stderr hygiene |
 | `rust-macros` | Any `macro_rules!` or proc macro — but function/generic/trait first; hygiene, `$crate`, spanned compile errors, `trybuild` tests |
+| `rust-traits-generics` | Any trait definition/impl, generic code, generics-vs-`dyn` choice, or "trait bound not satisfied" fight — std traits, bounds, `impl Trait`, orphan rule |
+| `rust-iterators-closures` | Any collection transform, loop, or callback — `Fn`/`FnMut`/`FnOnce`, lazy adapters vs consumers, `collect`, `iter`/`iter_mut`/`into_iter` |
 
 ### Engineering skills (auto-activated; principles apply to every change)
 
