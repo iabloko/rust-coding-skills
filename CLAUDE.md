@@ -67,6 +67,8 @@ For multi-step tasks, state a brief plan with a verify check per step.
 | `rust-web` | Any axum handler/router/middleware — thin handler over a service, `IntoResponse` errors, validation, tower layers |
 | `rust-database` | Any SQL/sqlx — pooling, `query!` bind params, transactions, migrations, N+1 |
 | `rust-observability` | Any logging/metrics — `tracing` structured logs + spans, no `println!`, no secrets in fields |
+| `rust-cli` | Any binary parsing args/subcommands/flags — `clap` derive, thin `main` over testable functions, exit codes, stdout-vs-stderr hygiene |
+| `rust-macros` | Any `macro_rules!` or proc macro — but function/generic/trait first; hygiene, `$crate`, spanned compile errors, `trybuild` tests |
 
 ### Engineering skills (auto-activated; principles apply to every change)
 
