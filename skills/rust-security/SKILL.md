@@ -1,6 +1,6 @@
 ---
 name: rust-security
-description: Security-review Rust code — unsafe soundness, integer overflow/truncation, panic-as-DoS, injection (SQL/command/path), deserialization limits, secret handling, dependency advisories (cargo audit/deny), crypto, authz, and resource exhaustion. Use whenever reviewing a diff for security, hardening a handler, or adding unsafe/crypto/untrusted-input handling. Backend defaults: sqlx, axum, tokio.
+description: "Security-review Rust code — unsafe soundness, integer overflow/truncation, panic-as-DoS, injection (SQL/command/path), deserialization limits, secret handling, dependency advisories (cargo audit/deny), crypto, authz, and resource exhaustion. Use whenever reviewing a diff for security, hardening a handler, or adding unsafe/crypto/untrusted-input handling. Backend defaults: sqlx, axum, tokio."
 ---
 
 # Rust Security Review

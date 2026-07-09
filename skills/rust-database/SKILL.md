@@ -1,6 +1,6 @@
 ---
 name: rust-database
-description: Work with SQL databases in Rust via sqlx — connection pooling, compile-time-checked query!/query_as macros, bind parameters (never string-built SQL), transactions, migrations, mapping rows to types, and avoiding N+1. Use whenever adding a query, a migration, a repository impl, or wiring a DB pool. Opinionated default: sqlx + PostgreSQL.
+description: "Work with SQL databases in Rust via sqlx — connection pooling, compile-time-checked query!/query_as macros, bind parameters (never string-built SQL), transactions, migrations, mapping rows to types, and avoiding N+1. Use whenever adding a query, a migration, a repository impl, or wiring a DB pool. Opinionated default: sqlx + PostgreSQL."
 ---
 
 # Rust Database (sqlx)

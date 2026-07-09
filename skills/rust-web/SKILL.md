@@ -1,6 +1,6 @@
 ---
 name: rust-web
-description: Build HTTP services with axum — routing, extractors, State, error-to-response mapping, tower middleware, request validation, JSON with serde, and keeping handlers thin over a testable service layer. Use whenever adding an endpoint, handler, middleware, or wiring an axum app. Opinionated default web stack: axum + tower + serde + tokio.
+description: "Build HTTP services with axum — routing, extractors, State, error-to-response mapping, tower middleware, request validation, JSON with serde, and keeping handlers thin over a testable service layer. Use whenever adding an endpoint, handler, middleware, or wiring an axum app. Opinionated default web stack: axum + tower + serde + tokio."
 ---
 
 # Rust Web (axum)
